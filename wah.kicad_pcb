@@ -4947,7 +4947,7 @@
 		(path "/502911c3-adc7-49c9-82b4-c32dcebbc8ae")
 		(sheetname "/")
 		(sheetfile "wah.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.12 1.37)
 			(end -1.12 -1.37)
@@ -6414,7 +6414,7 @@
 		(path "/7c5d2ed9-ae3e-4316-b1cc-522bf08cc8ec")
 		(sheetname "/")
 		(sheetfile "wah.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.12 1.37)
 			(end -1.12 -1.37)
@@ -6780,7 +6780,7 @@
 		(path "/6616ad64-e84f-4c62-b02b-d64d455cf138")
 		(sheetname "/")
 		(sheetfile "wah.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.12 1.37)
 			(end -1.12 -1.37)
@@ -6943,7 +6943,7 @@
 		(path "/7943697c-e556-4f3b-84fc-3db790bb53bc")
 		(sheetname "/")
 		(sheetfile "wah.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start 6.12 -1.37)
 			(end 6.12 1.37)
