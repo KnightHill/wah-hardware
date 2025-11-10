@@ -3913,12 +3913,6 @@
 		(uuid "5f03e7bf-ddba-4fe0-aad0-b5006ccbe9e4")
 	)
 	(junction
-		(at 232.41 224.79)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6dc1649c-e0ff-49cf-9094-6b1a717fbe8c")
-	)
-	(junction
 		(at 240.03 64.77)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4264,7 +4258,7 @@
 	)
 	(wire
 		(pts
-			(xy 232.41 224.79) (xy 232.41 227.33)
+			(xy 232.41 222.25) (xy 232.41 227.33)
 		)
 		(stroke
 			(width 0)
@@ -4441,16 +4435,6 @@
 			(type default)
 		)
 		(uuid "4af1264d-ccf6-49a4-b541-c3ab9798681b")
-	)
-	(wire
-		(pts
-			(xy 194.31 222.25) (xy 194.31 227.33)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4c96718a-6ab2-4052-b1b3-179d2ab9796a")
 	)
 	(wire
 		(pts
@@ -5011,16 +4995,6 @@
 			(type default)
 		)
 		(uuid "f3017b59-cada-40d2-a44b-8967c3f823f9")
-	)
-	(wire
-		(pts
-			(xy 232.41 222.25) (xy 232.41 224.79)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f75b3e36-6b3e-410c-a790-bff722f9259c")
 	)
 	(wire
 		(pts
@@ -6201,74 +6175,6 @@
 			(project "roundup"
 				(path "/93d00cbf-8e4b-443f-bc57-0c283a060166"
 					(reference "#PWR013")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 194.31 222.25 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "20f519db-08c2-494b-ab3c-6c376ebe0130")
-		(property "Reference" "TP_5V1"
-			(at 196.85 218.9479 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 196.85 220.2179 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_1.5x1.5mm_Drill0.7mm"
-			(at 199.39 222.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 199.39 222.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 194.31 222.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "76114ce3-e062-4dcf-8ae2-89b25000b202")
-		)
-		(instances
-			(project "wah"
-				(path "/93d00cbf-8e4b-443f-bc57-0c283a060166"
-					(reference "TP_5V1")
 					(unit 1)
 				)
 			)
@@ -10048,74 +9954,6 @@
 			(project "wah"
 				(path "/93d00cbf-8e4b-443f-bc57-0c283a060166"
 					(reference "R6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 232.41 224.79 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f2bfe6d3-a4a4-4a2d-966e-b1d53344f113")
-		(property "Reference" "TP_VREF1"
-			(at 237.49 224.7899 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 234.4421 227.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_1.5x1.5mm_Drill0.7mm"
-			(at 232.41 229.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 232.41 229.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 232.41 224.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "07c664be-3400-435a-b971-d06129968986")
-		)
-		(instances
-			(project "wah"
-				(path "/93d00cbf-8e4b-443f-bc57-0c283a060166"
-					(reference "TP_VREF1")
 					(unit 1)
 				)
 			)
