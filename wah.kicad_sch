@@ -6,8 +6,8 @@
 	(paper "A3")
 	(title_block
 		(title "Wah")
-		(date "2025-10-31")
-		(rev "0.3")
+		(date "2025-11-11")
+		(rev "0.4.3")
 		(company "KnightHill Engineering")
 	)
 	(lib_symbols
