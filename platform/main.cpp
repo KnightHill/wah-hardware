@@ -47,6 +47,8 @@ void ProcessAnalogControls() {
 
 void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, size_t size)
 {
+    ProcessAnalogControls();
+    
     for(size_t i = 0; i < size; i++)
     {
         float input = in[0][i];   
