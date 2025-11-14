@@ -25,25 +25,23 @@ Svf filter1, filter2;
 
 float filter1_freq = range(Filter1Min, Filter1Max, 0.5f);
 float filter2_freq = range(Filter2Min, Filter2Max, 0.5f);
-
 float pot1, pot2;
-float old_pot1, old_pot2;
 
 void ProcessAnalogControls() {
-    pot1 = hw.adc.GetFloat(0);
-    pot2 = hw.adc.GetFloat(1);
+    float pot1v = hw.adc.GetFloat(0);
+    float pot2v = hw.adc.GetFloat(1);
 
-    if(fabs(pot1 - old_pot1) > 0.05f) {
+    if(fabs(pot1v - pot1) > 0.05f) {
         // 350 Hz - 2.2 kHz
-        filter1_freq = range(Filter1Min, Filter1Max, pot1);
+        filter1_freq = range(Filter1Min, Filter1Max, pot1v);
         filter1.SetFreq(filter1_freq);
-        old_pot1 = pot1;
+        pot1 = pot1v;
     }
  
-    if(fabs(pot2 - old_pot2) > 0.05f) {
-        float q = range(QMin, QMax, pot2);
+    if(fabs(pot2v - pot2) > 0.05f) {
+        float q = range(QMin, QMax, pot2v);
         filter1.SetRes(q);
-        old_pot2 = pot2;
+        pot2 = pot2v;
     }    
 }
 
@@ -98,7 +96,6 @@ void init()
 int main(void)
 {
     pot1 = pot2 = 0;
-    old_pot1 = old_pot2 = 0;
     filter_mode = true;     // false - low pass, true - babd pass
     wah_mode = false;       // false - single filter, true - two (formant) filters
     
