@@ -184,10 +184,10 @@
 	(net 37 "/AUDIO_OUT")
 	(net 38 "Net-(C1-Pad1)")
 	(net 39 "Net-(U1B-+)")
-	(net 40 "Net-(C6-Pad1)")
+	(net 40 "Net-(C5-Pad1)")
 	(net 41 "unconnected-(A1-ADC_3-Pad25)")
 	(net 42 "Net-(U1C-V+)")
-	(net 43 "Net-(C11-Pad2)")
+	(net 43 "Net-(C9-Pad2)")
 	(net 44 "unconnected-(A1-USB_D_--Pad36)")
 	(net 45 "Net-(D1-A)")
 	(net 46 "Net-(U1A-+)")
@@ -581,7 +581,7 @@
 		(at 100.51 69.445 90)
 		(descr "C, Rect series, Radial, pin pitch=5.00mm, length*width=7*4.5mm^2, Capacitor")
 		(tags "C Rect series Radial pin pitch 5.00mm length 7mm width 4.5mm Capacitor")
-		(property "Reference" "C11"
+		(property "Reference" "C9"
 			(at 2.5 0 90)
 			(layer "F.SilkS")
 			(uuid "6c175225-7ef9-4ca3-9546-5286f9b34716")
@@ -721,7 +721,7 @@
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 43 "Net-(C11-Pad2)")
+			(net 43 "Net-(C9-Pad2)")
 			(pintype "passive")
 			(uuid "4796b914-7e93-4092-9417-4e207a08815d")
 		)
@@ -1059,7 +1059,7 @@
 		(at 67.926667 77.575 90)
 		(descr "C, Rect series, Radial, pin pitch=5.00mm, length*width=7*4.5mm^2, Capacitor")
 		(tags "C Rect series Radial pin pitch 5.00mm length 7mm width 4.5mm Capacitor")
-		(property "Reference" "C6"
+		(property "Reference" "C5"
 			(at 2.5 0 90)
 			(layer "F.SilkS")
 			(uuid "a30df4de-2f35-454c-8f7f-443f83acc38e")
@@ -1189,7 +1189,7 @@
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 40 "Net-(C6-Pad1)")
+			(net 40 "Net-(C5-Pad1)")
 			(pintype "passive")
 			(uuid "7a9f40aa-039d-42d4-acc7-a5a9cd0e6379")
 		)
@@ -1222,7 +1222,7 @@
 		(at 76.55 46.475)
 		(descr "CP, Radial series, Radial, pin pitch=2.50mm, diameter=5mm, height=7mm, Electrolytic Capacitor")
 		(tags "CP Radial series Radial pin pitch 2.50mm diameter 5mm height 7mm Electrolytic Capacitor")
-		(property "Reference" "C13"
+		(property "Reference" "C7"
 			(at 1.25 -3.75 0)
 			(layer "F.SilkS")
 			(uuid "9cf32c21-7980-43c5-9d69-61728b790efb")
@@ -4566,7 +4566,7 @@
 		(at 96.4004 81.649)
 		(descr "C, Rect series, Radial, pin pitch=5.00mm, length*width=7*2.5mm^2, Capacitor")
 		(tags "C Rect series Radial pin pitch 5.00mm length 7mm width 2.5mm Capacitor")
-		(property "Reference" "C8"
+		(property "Reference" "C6"
 			(at 2.5 0 0)
 			(layer "F.SilkS")
 			(uuid "d887d036-099c-4dff-abd7-91c90d2bcaf7")
@@ -4899,7 +4899,7 @@
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 43 "Net-(C11-Pad2)")
+			(net 43 "Net-(C9-Pad2)")
 			(pintype "passive")
 			(uuid "0f86afd0-bf32-4b70-8f45-34f6a09f882a")
 		)
@@ -6892,7 +6892,7 @@
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 40 "Net-(C6-Pad1)")
+			(net 40 "Net-(C5-Pad1)")
 			(pintype "passive")
 			(uuid "617a4ddb-cce6-4251-8081-889bb1638eeb")
 		)
@@ -6915,7 +6915,7 @@
 		(at 96.4004 85.1796)
 		(descr "C, Rect series, Radial, pin pitch=5.00mm, length*width=7*2.5mm^2, Capacitor")
 		(tags "C Rect series Radial pin pitch 5.00mm length 7mm width 2.5mm Capacitor")
-		(property "Reference" "C7"
+		(property "Reference" "C4"
 			(at 2.5 0 0)
 			(layer "F.SilkS")
 			(uuid "51477798-f35e-4087-82ac-6fe9a712f23b")
@@ -9011,7 +9011,7 @@
 			)
 		)
 		(property ki_fp_filters "SOIC*3.9x4.9mm*P1.27mm* DIP*W7.62mm* TO*99* OnSemi*Micro8* TSSOP*3x3mm*P0.65mm* TSSOP*4.4x3mm*P0.65mm* MSOP*3x3mm*P0.65mm* SSOP*3.9x4.9mm*P0.635mm* LFCSP*2x2mm*P0.5mm* *SIP* SOIC*5.3x6.2mm*P1.27mm*")
-		(path "/b5683a27-b3d5-498f-891c-b597104722bf")
+		(path "/fdfcd559-2b6c-44a0-952a-5c462d629167")
 		(sheetname "/")
 		(sheetfile "wah.kicad_sch")
 		(attr through_hole exclude_from_pos_files)
@@ -9282,7 +9282,7 @@
 		(at 96.053333 73.445 -90)
 		(descr "C, Rect series, Radial, pin pitch=5.00mm, length*width=7*2.5mm^2, Capacitor")
 		(tags "C Rect series Radial pin pitch 5.00mm length 7mm width 2.5mm Capacitor")
-		(property "Reference" "C9"
+		(property "Reference" "C8"
 			(at 2.5 0.125 90)
 			(layer "F.SilkS")
 			(uuid "8d896415-5a95-4efe-abea-c7872a60dbac")
@@ -10411,7 +10411,7 @@
 		(at 100.51 73.445 -90)
 		(descr "C, Rect series, Radial, pin pitch=5.00mm, length*width=7*4.5mm^2, Capacitor")
 		(tags "C Rect series Radial pin pitch 5.00mm length 7mm width 4.5mm Capacitor")
-		(property "Reference" "C12"
+		(property "Reference" "C10"
 			(at 2.5 0 270)
 			(layer "F.SilkS")
 			(uuid "906c9d93-3548-420e-a071-b16e3f33d6cd")
