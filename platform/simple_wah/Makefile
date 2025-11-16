@@ -1,12 +1,12 @@
 # Project Name
-TARGET = wah
+TARGET = SimpleWah
 
 # Sources
 CPP_SOURCES = main.cpp
 
 # Library Locations
-DAISYSP_DIR ?= ../../../../DaisySP
-LIBDAISY_DIR ?= ../../../../libDaisy
+DAISYSP_DIR ?= ../../../../../DaisySP
+LIBDAISY_DIR ?= ../../../../../libDaisy
 
 # Core location, and generic Makefile.
 SYSTEM_FILES_DIR = $(LIBDAISY_DIR)/core
