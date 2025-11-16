@@ -11,8 +11,8 @@ DaisySeed hw;
 
 constexpr float Filter1Min = 200.0f;
 constexpr float Filter1Max = 1600.0f;
-constexpr float QMin = 0.5f;
-constexpr float QMax = 1.2f;
+constexpr float QMin = 0.45f;
+constexpr float QMax = 1.0f;
 
 inline float range(float min, float max, float value) { return min + (value * (max - min)); }
 
@@ -22,6 +22,12 @@ Svf filter1;
 
 float filter1_freq = range(Filter1Min, Filter1Max, 0.5f);
 float pot1, pot2;
+
+// prototypes
+void ProcessAnalogControls();
+void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, size_t size);
+void BlinkLed(int delay = 200);
+void init(); 
 
 void ProcessAnalogControls() {
     float pot1v = hw.adc.GetFloat(0);
@@ -54,6 +60,17 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
     }
 }
 
+void BlinkLed(int delay)
+{
+    for(auto i = 0; i < 3; i++) 
+    {
+        hw.SetLed(true);
+        System::Delay(delay);
+        hw.SetLed(false);
+        System::Delay(delay);
+    }
+}
+
 void init() 
 {
     const int num_adc_channels = 2;
@@ -80,12 +97,13 @@ void init()
 int main(void)
 {
     pot1 = pot2 = 0;
-    filter_mode = true;     // false - low pass, true - babd pass
+    filter_mode = false;     // false - low pass, true - babd pass
     
     init();
-
+    BlinkLed();
+    
     while(1) {
-        hw.SetLed(pot1 > 0.5f || pot2 > 0.5f);
+        // hw.SetLed(pot1 > 0.5f || pot2 > 0.5f);
         System::Delay(5);
     }
 }
