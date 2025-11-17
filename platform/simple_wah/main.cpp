@@ -5,6 +5,8 @@ using namespace daisy;
 using namespace daisy::seed;
 using namespace daisysp;
 
+// TODO: Add taper
+
 // constants
 constexpr float Filter1Min = 350.0f;
 constexpr float Filter1Max = 2200.0f;
