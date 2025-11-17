@@ -4,6 +4,9 @@ TARGET = SimpleWah
 # Sources
 CPP_SOURCES = main.cpp
 
+# Flags
+OPT = -O3
+
 # Library Locations
 DAISYSP_DIR ?= ../../../../../DaisySP
 LIBDAISY_DIR ?= ../../../../../libDaisy
