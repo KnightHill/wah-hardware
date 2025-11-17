@@ -5,9 +5,9 @@
 	(uuid "93d00cbf-8e4b-443f-bc57-0c283a060166")
 	(paper "A3")
 	(title_block
-		(title "Wah")
-		(date "2025-11-13")
-		(rev "0.6.1")
+		(title "BadBaby Wah")
+		(date "2025-11-16")
+		(rev "0.7")
 		(company "KnightHill Engineering")
 	)
 	(lib_symbols
@@ -4569,7 +4569,7 @@
 	)
 	(wire
 		(pts
-			(xy 299.72 185.42) (xy 300.99 185.42)
+			(xy 288.29 134.62) (xy 289.56 134.62)
 		)
 		(stroke
 			(width 0)
@@ -4589,7 +4589,7 @@
 	)
 	(wire
 		(pts
-			(xy 299.72 187.96) (xy 300.99 187.96)
+			(xy 288.29 137.16) (xy 289.56 137.16)
 		)
 		(stroke
 			(width 0)
@@ -4839,7 +4839,7 @@
 	)
 	(wire
 		(pts
-			(xy 299.72 182.88) (xy 300.99 182.88)
+			(xy 288.29 132.08) (xy 289.56 132.08)
 		)
 		(stroke
 			(width 0)
@@ -4909,7 +4909,7 @@
 	)
 	(wire
 		(pts
-			(xy 297.18 205.74) (xy 300.99 205.74)
+			(xy 285.75 154.94) (xy 289.56 154.94)
 		)
 		(stroke
 			(width 0)
@@ -4939,7 +4939,7 @@
 	)
 	(wire
 		(pts
-			(xy 297.18 207.01) (xy 297.18 205.74)
+			(xy 285.75 156.21) (xy 285.75 154.94)
 		)
 		(stroke
 			(width 0)
@@ -5159,7 +5159,7 @@
 	)
 	(wire
 		(pts
-			(xy 297.18 203.2) (xy 300.99 203.2)
+			(xy 285.75 152.4) (xy 289.56 152.4)
 		)
 		(stroke
 			(width 0)
@@ -5259,7 +5259,7 @@
 	)
 	(wire
 		(pts
-			(xy 299.72 190.5) (xy 300.99 190.5)
+			(xy 288.29 139.7) (xy 289.56 139.7)
 		)
 		(stroke
 			(width 0)
@@ -5329,7 +5329,7 @@
 	)
 	(wire
 		(pts
-			(xy 293.37 177.8) (xy 300.99 177.8)
+			(xy 281.94 127) (xy 289.56 127)
 		)
 		(stroke
 			(width 0)
@@ -5359,7 +5359,7 @@
 	)
 	(wire
 		(pts
-			(xy 297.18 200.66) (xy 300.99 200.66)
+			(xy 285.75 149.86) (xy 289.56 149.86)
 		)
 		(stroke
 			(width 0)
@@ -5409,7 +5409,7 @@
 	)
 	(wire
 		(pts
-			(xy 299.72 180.34) (xy 300.99 180.34)
+			(xy 288.29 129.54) (xy 289.56 129.54)
 		)
 		(stroke
 			(width 0)
@@ -5865,7 +5865,7 @@
 		(uuid "34c1e8b4-aa61-4622-9dbc-db216161a9f3")
 	)
 	(label "FX_IN"
-		(at 299.72 185.42 180)
+		(at 288.29 134.62 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5905,7 +5905,7 @@
 		(uuid "4ea8ea32-6185-4280-a4e9-a9ca6ce6a977")
 	)
 	(label "J_OUT"
-		(at 299.72 182.88 180)
+		(at 288.29 132.08 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6035,7 +6035,7 @@
 		(uuid "a8df8c91-0481-4053-915f-42f548ad2a2b")
 	)
 	(label "LED"
-		(at 299.72 190.5 180)
+		(at 288.29 139.7 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6065,7 +6065,7 @@
 		(uuid "c02e22bb-b83d-4d0e-97f5-d6246720810a")
 	)
 	(label "J_IN"
-		(at 299.72 180.34 180)
+		(at 288.29 129.54 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6105,7 +6105,7 @@
 		(uuid "d32226ed-e2c8-4017-b549-132c85bc08d7")
 	)
 	(label "FX_OUT"
-		(at 299.72 187.96 180)
+		(at 288.29 137.16 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6135,7 +6135,7 @@
 		(uuid "f2f09729-01de-4ea1-8047-e9603e7366f8")
 	)
 	(label "WAH_POT"
-		(at 297.18 203.2 180)
+		(at 285.75 152.4 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6867,7 +6867,7 @@
 	)
 	(symbol
 		(lib_id "power:VDD")
-		(at 297.18 207.01 180)
+		(at 285.75 156.21 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6876,7 +6876,7 @@
 		(fields_autoplaced yes)
 		(uuid "3952c7e9-317d-4811-ab8d-e8e7c130ea58")
 		(property "Reference" "#PWR033"
-			(at 297.18 203.2 0)
+			(at 285.75 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6885,7 +6885,7 @@
 			)
 		)
 		(property "Value" "VDD"
-			(at 297.18 212.09 0)
+			(at 285.75 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6893,7 +6893,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 297.18 207.01 0)
+			(at 285.75 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6902,7 +6902,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 297.18 207.01 0)
+			(at 285.75 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6911,7 +6911,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"VDD\""
-			(at 297.18 207.01 0)
+			(at 285.75 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7270,7 +7270,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 297.18 200.66 180)
+		(at 285.75 149.86 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7279,7 +7279,7 @@
 		(fields_autoplaced yes)
 		(uuid "531f55ef-0703-4305-8201-92adf0d12cde")
 		(property "Reference" "#PWR032"
-			(at 297.18 194.31 0)
+			(at 285.75 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7288,7 +7288,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 297.18 195.58 0)
+			(at 285.75 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7296,7 +7296,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 297.18 200.66 0)
+			(at 285.75 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7305,7 +7305,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 297.18 200.66 0)
+			(at 285.75 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7314,7 +7314,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 297.18 200.66 0)
+			(at 285.75 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9755,7 +9755,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x06_Pin")
-		(at 306.07 182.88 0)
+		(at 294.64 132.08 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9764,7 +9764,7 @@
 		(dnp no)
 		(uuid "b7c983da-570f-4f9c-b447-046c1b0a6a3c")
 		(property "Reference" "J4"
-			(at 305.435 172.72 0)
+			(at 294.005 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9772,7 +9772,7 @@
 			)
 		)
 		(property "Value" "Conn_01x06_Pin"
-			(at 305.435 175.26 0)
+			(at 294.005 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9780,7 +9780,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical"
-			(at 306.07 182.88 0)
+			(at 294.64 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9789,7 +9789,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 306.07 182.88 0)
+			(at 294.64 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9798,7 +9798,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x06, script generated"
-			(at 306.07 182.88 0)
+			(at 294.64 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9905,7 +9905,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x03_Pin")
-		(at 306.07 203.2 0)
+		(at 294.64 152.4 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9914,7 +9914,7 @@
 		(dnp no)
 		(uuid "bdb6a82b-278e-4bbf-b3ec-59c56b4557ef")
 		(property "Reference" "J5"
-			(at 307.34 204.4701 0)
+			(at 295.91 153.6701 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9923,7 +9923,7 @@
 			)
 		)
 		(property "Value" "Conn_01x03_Pin"
-			(at 307.34 201.9301 0)
+			(at 295.91 151.1301 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9932,7 +9932,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
-			(at 306.07 203.2 0)
+			(at 294.64 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9941,7 +9941,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 306.07 203.2 0)
+			(at 294.64 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9950,7 +9950,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x03, script generated"
-			(at 306.07 203.2 0)
+			(at 294.64 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10262,7 +10262,7 @@
 	)
 	(symbol
 		(lib_id "power:+9V")
-		(at 293.37 177.8 90)
+		(at 281.94 127 90)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -10272,7 +10272,7 @@
 		(fields_autoplaced yes)
 		(uuid "c5cfa906-b2ea-437f-be89-10d512307608")
 		(property "Reference" "#PWR029"
-			(at 297.18 177.8 0)
+			(at 285.75 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10281,7 +10281,7 @@
 			)
 		)
 		(property "Value" "+9V"
-			(at 289.56 177.7999 90)
+			(at 278.13 126.9999 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10290,7 +10290,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 293.37 177.8 0)
+			(at 281.94 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10299,7 +10299,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 293.37 177.8 0)
+			(at 281.94 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10308,7 +10308,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+9V\""
-			(at 293.37 177.8 0)
+			(at 281.94 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)

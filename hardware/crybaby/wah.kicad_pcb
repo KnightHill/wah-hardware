@@ -8,9 +8,9 @@
 	)
 	(paper "A4")
 	(title_block
-		(title "Wah")
-		(date "2025-11-13")
-		(rev "0.6.1")
+		(title "BadBaby Wah")
+		(date "2025-11-16")
+		(rev "0.7")
 		(company "KnightHill Engineering")
 	)
 	(layers
@@ -3919,7 +3919,7 @@
 	(footprint "LOGO"
 		(layer "F.Cu")
 		(uuid "3e646944-2d5f-47ac-af42-fc4ead8e48cb")
-		(at 77.33587 78.022106)
+		(at 104.16587 112.290059)
 		(property "Reference" "G***"
 			(at 0 0 0)
 			(layer "F.SilkS")
@@ -12689,8 +12689,8 @@
 		)
 	)
 	(gr_rect
-		(start 84.376851 42.315)
-		(end 82.003148 34.475)
+		(start 82.003148 34.475)
+		(end 84.376851 42.315)
 		(stroke
 			(width 0.15)
 			(type solid)
@@ -12700,8 +12700,8 @@
 		(uuid "2ccb6795-adba-4e25-ad8f-b730a2542fdd")
 	)
 	(gr_rect
-		(start 75.419998 49.915)
-		(end 73.069999 34.595)
+		(start 73.069999 34.595)
+		(end 75.419998 49.915)
 		(stroke
 			(width 0.15)
 			(type default)
@@ -12733,8 +12733,8 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "DryBaby Wah\nversion 0.6"
-		(at 77.47 82.112106 0)
+	(gr_text "BadBaby Wah\nversion 0.6"
+		(at 104.3 116.380059 0)
 		(layer "F.SilkS")
 		(uuid "23e00d80-c9b6-4a5a-9ec1-6c368aedf057")
 		(effects
