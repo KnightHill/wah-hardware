@@ -5,8 +5,6 @@ using namespace daisy;
 using namespace daisy::seed;
 using namespace daisysp;
 
-// TODO: Add taper
-
 // constants
 constexpr float Filter1Min = 350.0f;
 constexpr float Filter1Max = 2200.0f;
@@ -16,6 +14,7 @@ constexpr float ChangeThreshold = 0.02f;
 
 // inline functions
 inline float range(float min, float max, float value) { return min + (value * (max - min)); }
+inline float taper(float x) { return x < 0.5f ? x * 1.8f : x * 0.2f + 0.8f; }
 
 // local variables
 DaisySeed hw;
@@ -23,6 +22,7 @@ Svf filter1;
 float filter1_freq = range(Filter1Min, Filter1Max, 0.5f);
 float pot1, pot2;
 bool filter_mode; // false - low pass, true - band pass
+bool use_taper;
 
 // prototypes
 void ProcessAnalogControls();
@@ -36,7 +36,10 @@ void ProcessAnalogControls()
   float pot2v = hw.adc.GetFloat(1);
 
   if (fabs(pot1v - pot1) > ChangeThreshold) {
-    filter1_freq = range(Filter1Min, Filter1Max, pot1v);
+    if(use_taper)
+      filter1_freq = range(Filter1Min, Filter1Max,taper(pot1v));
+    else
+      filter1_freq = range(Filter1Min, Filter1Max, pot1v);
     filter1.SetFreq(filter1_freq);
     pot1 = pot1v;
   }
@@ -97,6 +100,7 @@ int main(void)
 {
   pot1 = pot2 = 0;
   filter_mode = false; // false - low pass, true - band pass
+  use_taper = true;
 
   Init();
   BlinkLed();
