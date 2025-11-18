@@ -1,5 +1,6 @@
 #include "daisy_seed.h"
 #include "daisysp.h"
+#include "taper.h"
 
 using namespace daisy;
 using namespace daisy::seed;
@@ -14,7 +15,6 @@ constexpr float ChangeThreshold = 0.02f;
 
 // inline functions
 inline float range(float min, float max, float value) { return min + (value * (max - min)); }
-inline float taper(float x) { return x < 0.5f ? x * 1.8f : x * 0.2f + 0.8f; }
 
 // local variables
 DaisySeed hw;
@@ -23,12 +23,19 @@ float filter1_freq = range(Filter1Min, Filter1Max, 0.5f);
 float pot1, pot2;
 bool filter_mode; // false - low pass, true - band pass
 bool use_taper;
+bool taper_type;  // false - log, true - inverse log
 
 // prototypes
 void ProcessAnalogControls();
 void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, size_t size);
 void BlinkLed(int delay = 200);
 void Init();
+float taper(float x);
+
+float taper(float x)
+{
+  return taper_type ? inv_log_taper(x) : log_taper(x);
+}
 
 void ProcessAnalogControls()
 {
@@ -101,6 +108,7 @@ int main(void)
   pot1 = pot2 = 0;
   filter_mode = false; // false - low pass, true - band pass
   use_taper = true;
+  taper_type = false;  // false - log, true - inverse log
 
   Init();
   BlinkLed();
