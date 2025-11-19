@@ -16,12 +16,12 @@ constexpr float ChangeThreshold = 0.02f;
 enum TaperType { LINEAR, DEAD_ZONE, LOG, INVERSE_LOG };
 
 // inline functions
-inline float range(float min, float max, float value) { return min + (value * (max - min)); }
+// inline float range(float min, float max, float value) { return min + (value * (max - min)); }
 
 // local variables
 DaisySeed hw;
 Svf filter1;
-float filter1_freq = range(Filter1Min, Filter1Max, 0.5f);
+float filter1_freq = fmap(Filter1Min, Filter1Max, 0.5f);
 float pot1, pot2;
 bool filter_mode; // false - low pass, true - band pass
 TaperType taper_type;
@@ -29,22 +29,22 @@ TaperType taper_type;
 // prototypes
 void ProcessAnalogControls();
 void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, size_t size);
-void BlinkLed(int delay = 200);
+void BlinkLed(int num = 3, int delay = 200);
 void Init();
-float taper(float x);
+float Taper(float x);
 
-float taper(float x)
+float Taper(float x)
 {
   switch (taper_type) {
-  case DEAD_ZONE:
-    return dead_zone_taper(x);
-  case LOG:
-    return log_taper(x);
-  case INVERSE_LOG:
-    return inv_log_taper(x);
-  case LINEAR:
-  default:
-    return x;
+    case DEAD_ZONE:
+      return dead_zone_taper(x);
+    case LOG:
+      return log_taper(x);
+    case INVERSE_LOG:
+      return inv_log_taper(x);
+    case LINEAR:
+    default:
+      return x;
   }
 }
 
@@ -54,13 +54,13 @@ void ProcessAnalogControls()
   float pot2v = hw.adc.GetFloat(1);
 
   if (fabs(pot1v - pot1) > ChangeThreshold) {
-    filter1_freq = range(Filter1Min, Filter1Max, taper(pot1v));
+    filter1_freq = fmap(Filter1Min, Filter1Max, Taper(pot1v));
     filter1.SetFreq(filter1_freq);
     pot1 = pot1v;
   }
 
   if (fabs(pot2v - pot2) > ChangeThreshold) {
-    float q = range(QMin, QMax, pot2v);
+    float q = fmap(QMin, QMax, pot2v);
     filter1.SetRes(q);
     pot2 = pot2v;
   }
@@ -78,9 +78,9 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
   }
 }
 
-void BlinkLed(int delay)
+void BlinkLed(int num, int delay)
 {
-  for (size_t i = 0; i < 3; i++) {
+  for (int i = 0; i < num; i++) {
     hw.SetLed(true);
     System::Delay(delay);
     hw.SetLed(false);
