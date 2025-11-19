@@ -13,6 +13,8 @@ constexpr float QMin = 0.45f;
 constexpr float QMax = 1.0f;
 constexpr float ChangeThreshold = 0.02f;
 
+enum TaperType { LINEAR, DEAD_ZONE, LOG, INVERSE_LOG };
+
 // inline functions
 inline float range(float min, float max, float value) { return min + (value * (max - min)); }
 
@@ -22,8 +24,7 @@ Svf filter1;
 float filter1_freq = range(Filter1Min, Filter1Max, 0.5f);
 float pot1, pot2;
 bool filter_mode; // false - low pass, true - band pass
-bool use_taper;
-bool taper_type;  // false - log, true - inverse log
+TaperType taper_type;
 
 // prototypes
 void ProcessAnalogControls();
@@ -34,7 +35,17 @@ float taper(float x);
 
 float taper(float x)
 {
-  return taper_type ? inv_log_taper(x) : log_taper(x);
+  switch (taper_type) {
+  case DEAD_ZONE:
+    return dead_zone_taper(x);
+  case LOG:
+    return log_taper(x);
+  case INVERSE_LOG:
+    return inv_log_taper(x);
+  case LINEAR:
+  default:
+    return x;
+  }
 }
 
 void ProcessAnalogControls()
@@ -43,10 +54,7 @@ void ProcessAnalogControls()
   float pot2v = hw.adc.GetFloat(1);
 
   if (fabs(pot1v - pot1) > ChangeThreshold) {
-    if(use_taper)
-      filter1_freq = range(Filter1Min, Filter1Max,taper(pot1v));
-    else
-      filter1_freq = range(Filter1Min, Filter1Max, pot1v);
+    filter1_freq = range(Filter1Min, Filter1Max, taper(pot1v));
     filter1.SetFreq(filter1_freq);
     pot1 = pot1v;
   }
@@ -107,8 +115,7 @@ int main(void)
 {
   pot1 = pot2 = 0;
   filter_mode = false; // false - low pass, true - band pass
-  use_taper = true;
-  taper_type = false;  // false - log, true - inverse log
+  taper_type = LINEAR;
 
   Init();
   BlinkLed();
