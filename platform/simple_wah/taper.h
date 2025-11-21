@@ -3,6 +3,18 @@ const float deadzone_width = 0.1f;
 
 class Taper
 {
+private:
+  struct Point {
+    float x, y;
+  };
+
+  struct Line {
+    float a, b;
+  };
+
+  Line lines[NUM_TAPER_POINTS - 1];
+  Point points[NUM_TAPER_POINTS] = {{0, 0}, {deadzone_width, 0}, {0.5f, 0.1f}, {1.0f - deadzone_width, 1.0f}, {1.0f, 1.0f}};
+
 public:
   Taper() {}
   void Init();
@@ -20,17 +32,6 @@ public:
   float LogDeadZone(float x);
 
 private:
-  struct Point {
-    float x, y;
-  };
-
-  struct Line {
-    float a, b;
-  };
-
-  Line lines[NUM_TAPER_POINTS - 1];
-  Point points[NUM_TAPER_POINTS] = {{0, 0}, {deadzone_width, 0}, {0.5f, 0.1f}, {1.0f - deadzone_width, 1.0f}, {1.0f, 1.0f}};
-
   Line CalcLine(Point p1, Point p2);
   void CalcLogWithDeadzones();
 };
