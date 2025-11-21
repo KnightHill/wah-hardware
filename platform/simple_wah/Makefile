@@ -2,7 +2,7 @@
 TARGET = SimpleWah
 
 # Sources
-CPP_SOURCES = main.cpp
+CPP_SOURCES = main.cpp taper.cpp
 
 # Flags
 OPT = -O3
