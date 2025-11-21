@@ -1,29 +1,37 @@
-// inverse log taper
-inline float inv_log_taper(float x) { return x < 0.5f ? x * 1.8f : x * 0.2f + 0.8f; }
-
-// log taper
-inline float log_taper(float x) { return x < 0.5f ? x * 0.2f : x * 1.8f - 0.8f; }
-
-// dead zone taper
-inline float dead_zone_taper(float x) {
-  if (x < 0.1)
-    return 0.0f;
-  else if (x > 0.9)
-    return 1.0f;
-  else
-    return 1.25f * x - 0.125f;
-}
-
-struct Point {
-  float x, y;
-} ;
-
-struct Line {
-  float a, b;
-} ;
-
 #define NUM_TAPER_POINTS 5
+const float deadzone_width = 0.1f;
 
-void calc_taper_with_deadzones();
-float log_dead_zone_taper(float x);
+class Taper
+{
+public:
+  Taper() {}
+  void Init();
+
+  // Log taper
+  inline float Log(float x) { return x < 0.5f ? x * 0.2f : x * 1.8f - 0.8f; }
+
+  // Inverse log taper
+  inline float InvLog(float x) { return x < 0.5f ? x * 1.8f : x * 0.2f + 0.8f; }
+
+  // Dead zone taper
+  float DeadZone(float x);
+
+  // Log with dead zone
+  float LogDeadZone(float x);
+
+private:
+  struct Point {
+    float x, y;
+  };
+
+  struct Line {
+    float a, b;
+  };
+
+  Line lines[NUM_TAPER_POINTS - 1];
+  Point points[NUM_TAPER_POINTS] = {{0, 0}, {deadzone_width, 0}, {0.5f, 0.1f}, {1.0f - deadzone_width, 1.0f}, {1.0f, 1.0f}};
+
+  Line CalcLine(Point p1, Point p2);
+  void CalcLogWithDeadzones();
+};
 

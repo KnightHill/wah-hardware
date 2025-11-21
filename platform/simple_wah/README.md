@@ -7,4 +7,4 @@ parameters:
 - Frequency (Wah Sweep)
 - Q Factor
 - Filter type (LP or BP)
-- Taper (Linear, Audio, inverse audio, dead zone)
+- Taper (Linear, Audio, inverse audio, dead zone, Audio with dead zone)

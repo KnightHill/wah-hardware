@@ -1,15 +1,9 @@
 #include "taper.h"
 
-const float deadzone_width = 0.1f;
+void Taper::Init() { CalcLogWithDeadzones(); }
 
-Line lines[NUM_TAPER_POINTS - 1];
-Point points[NUM_TAPER_POINTS] = {{0, 0},
-                            {deadzone_width, 0},
-                            {0.5f, 0.1f},
-                            {1.0f - deadzone_width, 1.0f},
-                            {1.0f, 1.0f}};
-
-Line calc_line(Point p1, Point p2) {
+Taper::Line Taper::CalcLine(Point p1, Point p2)
+{
   // calculate the slope
   float a = (p2.y - p1.y) / (p2.x - p1.x);
   // calculate the intercept
@@ -19,13 +13,15 @@ Line calc_line(Point p1, Point p2) {
   return line;
 }
 
-void calc_taper_with_deadzones() {
+void Taper::CalcLogWithDeadzones()
+{
   for (int p = 0; p < NUM_TAPER_POINTS - 1; p++) {
-    lines[p] = calc_line(points[p], points[p + 1]);
+    lines[p] = CalcLine(points[p], points[p + 1]);
   }
 }
 
-float log_dead_zone_taper(float x) {
+float Taper::LogDeadZone(float x)
+{
   for (int p = 0; p < NUM_TAPER_POINTS - 1; p++) {
     if (x >= points[p].x && x < points[p + 1].x) {
       return lines[p].a * x + lines[p].b;
@@ -33,5 +29,15 @@ float log_dead_zone_taper(float x) {
   }
 
   return 0;
+}
+
+float Taper::DeadZone(float x)
+{
+  if (x < 0.1)
+    return 0.0f;
+  else if (x > 0.9)
+    return 1.0f;
+  else
+    return 1.25f * x - 0.125f;
 }
 

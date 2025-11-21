@@ -13,14 +13,12 @@ constexpr float QMin = 0.45f;
 constexpr float QMax = 1.0f;
 constexpr float ChangeThreshold = 0.02f;
 
-enum TaperType { LINEAR, DEAD_ZONE, LOG, INVERSE_LOG };
-
-// inline functions
-// inline float range(float min, float max, float value) { return min + (value * (max - min)); }
+enum TaperType { LINEAR, DEAD_ZONE, LOG, INVERSE_LOG, LOG_DEAD_ZONE };
 
 // local variables
 DaisySeed hw;
 Svf filter1;
+Taper taper;
 float filter1_freq = fmap(Filter1Min, Filter1Max, 0.5f);
 float pot1, pot2;
 bool filter_mode; // false - low pass, true - band pass
@@ -37,11 +35,13 @@ float Taper(float x)
 {
   switch (taper_type) {
     case DEAD_ZONE:
-      return dead_zone_taper(x);
+      return taper.DeadZone(x);
     case LOG:
-      return log_taper(x);
+      return taper.Log(x);
     case INVERSE_LOG:
-      return inv_log_taper(x);
+      return taper.InvLog(x);
+    case LOG_DEAD_ZONE:
+      return taper.LogDeadZone(x);
     case LINEAR:
     default:
       return x;
@@ -92,6 +92,8 @@ void Init()
 {
   const int num_adc_channels = 2;
 
+  taper.Init();
+  
   hw.Init();
   hw.SetAudioBlockSize(4);
 
