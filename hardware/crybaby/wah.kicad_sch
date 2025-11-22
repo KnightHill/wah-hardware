@@ -8545,7 +8545,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad"
+		(property "Footprint" "MountingHole:MountingHole_4.5mm_Pad"
 			(at 328.93 83.82 0)
 			(effects
 				(font
