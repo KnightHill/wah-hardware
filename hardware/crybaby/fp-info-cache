@@ -1,4 +1,4 @@
-26263737795336049
+26265501734648447
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -57693,6 +57693,13 @@ JCLPCB Part # C318884
 0
 4
 2
+CustomFootprints
+Trimmer_JBR_3362P
+Potentiometer, vertical, Trimmer, RM-065 https://components101.com/sites/default/files/component_datasheet/Preset%20Potentiometer%20%28Trimpot%29.pdf
+Potentiometer Trimmer RM-065
+0
+3
+3
 CustomFootprints
 Waveshare_SSD1351_SPI
 

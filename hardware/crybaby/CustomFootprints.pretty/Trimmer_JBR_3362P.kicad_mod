@@ -1,0 +1,137 @@
+(footprint "Trimmer_JBR_3362P"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "Potentiometer, vertical, Trimmer, RM-065 https://components101.com/sites/default/files/component_datasheet/Preset%20Potentiometer%20%28Trimpot%29.pdf")
+	(tags "Potentiometer Trimmer RM-065")
+	(property "Reference" "REF**"
+		(at -1.5 -4.51 0)
+		(layer "F.SilkS")
+		(uuid "e68c5170-03c3-4a20-abd0-ad610c43d035")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "Trimmer_JBR_3362P"
+		(at -0.03 4.87 0)
+		(layer "F.Fab")
+		(uuid "92e8f8c3-0985-4c0d-8e38-92cbbf365409")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "e5cf5999-e6bd-4526-a17e-f1a8e3af6d3b")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c199e3de-841e-4cc8-8be0-1da79aa728d5")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_rect
+		(start -3.38 -3.55)
+		(end 3.26 3.5)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "7ab6e827-551d-4592-b67f-9e96b1cab856")
+	)
+	(fp_circle
+		(center -0.01 0.041534)
+		(end 1.27 -1.033466)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "46bfe350-507d-4e4a-a1d8-77e204d2f4c6")
+	)
+	(fp_rect
+		(start -3.46 -3.6)
+		(end 3.34 3.6)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "d1c2d3f6-810e-4fca-8b7e-7cd2bfbbdbc5")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0.02 2.15 0)
+		(layer "F.Fab")
+		(uuid "e63e39d7-6ac0-4ffd-8aa3-1841a4541b55")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole rect
+		(at -2.51 0.041534)
+		(size 1.56 1.56)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "eaef1172-3351-417c-bfc4-74a598f141cb")
+	)
+	(pad "2" thru_hole circle
+		(at 0 -2.5)
+		(size 1.56 1.56)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "f6ee98b5-4773-4eeb-a825-33c1705abace")
+	)
+	(pad "3" thru_hole circle
+		(at 2.49 0.041534)
+		(size 1.56 1.56)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "08e2d62f-f99a-4268-8b33-617dfcc63e75")
+	)
+	(embedded_fonts no)
+	(model "${KICAD9_3DMODEL_DIR}/Potentiometer_THT.3dshapes/Potentiometer_Runtron_RM-065_Vertical.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)
