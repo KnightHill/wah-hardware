@@ -4426,6 +4426,10 @@
 		(uuid "546f20f2-f3ee-4c05-a58c-9fdd04ee955c")
 	)
 	(no_connect
+		(at 157.48 152.4)
+		(uuid "78ac50ee-360a-4968-9d70-44bf9f9a35f0")
+	)
+	(no_connect
 		(at 208.28 172.72)
 		(uuid "7e660a8f-8a3c-4340-b1e7-5b1b7e75d367")
 	)
@@ -4789,16 +4793,6 @@
 	)
 	(wire
 		(pts
-			(xy 62.23 166.37) (xy 62.23 170.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "42a1468c-020e-40e0-8c94-e33a107d1471")
-	)
-	(wire
-		(pts
 			(xy 269.24 64.77) (xy 273.05 64.77)
 		)
 		(stroke
@@ -4866,16 +4860,6 @@
 			(type default)
 		)
 		(uuid "4f22a44c-d524-4447-8405-b6822daa1c67")
-	)
-	(wire
-		(pts
-			(xy 66.04 173.99) (xy 68.58 173.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4f37289f-b92b-46f6-8233-a02f8f629be2")
 	)
 	(wire
 		(pts
@@ -5266,16 +5250,6 @@
 			(type default)
 		)
 		(uuid "cc78a1a3-4409-4709-b6ba-568a5ce21e53")
-	)
-	(wire
-		(pts
-			(xy 54.61 173.99) (xy 58.42 173.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cdbd6db5-5187-4b49-accf-bda06a3715f8")
 	)
 	(wire
 		(pts
@@ -6004,16 +5978,6 @@
 		)
 		(uuid "a39ac27d-8a65-4907-a57d-372cf0ad6fb4")
 	)
-	(label "POT4"
-		(at 157.48 152.4 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "a4956060-c159-4941-ae9e-54619215cb09")
-	)
 	(label "POT3"
 		(at 157.48 149.86 180)
 		(effects
@@ -6093,16 +6057,6 @@
 			(justify right bottom)
 		)
 		(uuid "d084f47e-b0bf-481a-bb11-d0817f7abac2")
-	)
-	(label "POT4"
-		(at 62.23 166.37 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "d32226ed-e2c8-4017-b549-132c85bc08d7")
 	)
 	(label "FX_OUT"
 		(at 288.29 137.16 180)
@@ -7675,73 +7629,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 54.61 173.99 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "65599832-67fa-44b5-8da1-fd796f1eaaf2")
-		(property "Reference" "#PWR04"
-			(at 48.26 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 50.8 173.99 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 54.61 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 54.61 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 54.61 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d56a0e66-8733-423b-b628-e7468494419f")
-		)
-		(instances
-			(project "wah"
-				(path "/93d00cbf-8e4b-443f-bc57-0c283a060166"
-					(reference "#PWR04")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 128.27 69.85 0)
 		(unit 1)
@@ -7991,7 +7878,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Potentiometer_THT:Potentiometer_Runtron_RM-065_Vertical"
+		(property "Footprint" "Potentiometer_THT:Potentiometer_Vishay_T73YP_Vertical"
 			(at 62.23 156.21 0)
 			(effects
 				(font
@@ -8031,77 +7918,6 @@
 			(project "wah"
 				(path "/93d00cbf-8e4b-443f-bc57-0c283a060166"
 					(reference "RV3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Potentiometer")
-		(at 62.23 173.99 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7199c748-bae1-43a5-a676-13a72cc2dd30")
-		(property "Reference" "RV4"
-			(at 62.23 177.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10k"
-			(at 62.23 180.34 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Potentiometer_THT:Potentiometer_Runtron_RM-065_Vertical"
-			(at 62.23 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 62.23 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Potentiometer"
-			(at 62.23 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "089e2bea-d2be-41f9-8543-643d048b73eb")
-		)
-		(pin "3"
-			(uuid "4afbcce9-a391-46e9-a218-81c71e86d3e4")
-		)
-		(pin "2"
-			(uuid "410d93f8-521c-42c9-b227-0e593179224c")
-		)
-		(instances
-			(project "wah"
-				(path "/93d00cbf-8e4b-443f-bc57-0c283a060166"
-					(reference "RV4")
 					(unit 1)
 				)
 			)
@@ -8378,73 +8194,6 @@
 			(project ""
 				(path "/93d00cbf-8e4b-443f-bc57-0c283a060166"
 					(reference "C3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:VDD")
-		(at 68.58 173.99 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "81334357-dbed-48b5-b8a7-11634b22eb7d")
-		(property "Reference" "#PWR08"
-			(at 64.77 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VDD"
-			(at 72.39 173.9899 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 68.58 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 68.58 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VDD\""
-			(at 68.58 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "012c1d0f-d3ce-4d0b-8a92-f770c5c26d08")
-		)
-		(instances
-			(project "wah"
-				(path "/93d00cbf-8e4b-443f-bc57-0c283a060166"
-					(reference "#PWR08")
 					(unit 1)
 				)
 			)
@@ -8746,7 +8495,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Potentiometer_THT:Potentiometer_Runtron_RM-065_Vertical"
+		(property "Footprint" "Potentiometer_THT:Potentiometer_Vishay_T73YP_Vertical"
 			(at 62.23 137.16 0)
 			(effects
 				(font
@@ -11014,7 +10763,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Potentiometer_THT:Potentiometer_Runtron_RM-065_Vertical"
+		(property "Footprint" "Potentiometer_THT:Potentiometer_Vishay_T73YP_Vertical"
 			(at 62.23 119.38 0)
 			(effects
 				(font
