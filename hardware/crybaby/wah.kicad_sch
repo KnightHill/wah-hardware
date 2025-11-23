@@ -7878,7 +7878,7 @@
 				)
 			)
 		)
-		(property "Footprint" "CustomFootprints:Trimmer_JBR_3362P"
+		(property "Footprint" "CustomFootprints:3362P"
 			(at 62.23 156.21 0)
 			(effects
 				(font
@@ -8495,7 +8495,7 @@
 				)
 			)
 		)
-		(property "Footprint" "CustomFootprints:Trimmer_JBR_3362P"
+		(property "Footprint" "CustomFootprints:3362P"
 			(at 62.23 137.16 0)
 			(effects
 				(font
@@ -10763,7 +10763,7 @@
 				)
 			)
 		)
-		(property "Footprint" "CustomFootprints:Trimmer_JBR_3362P"
+		(property "Footprint" "CustomFootprints:3362P"
 			(at 62.23 119.38 0)
 			(effects
 				(font
