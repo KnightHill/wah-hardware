@@ -19,7 +19,7 @@ enum TaperType { LINEAR, DEAD_ZONE, LOG, INVERSE_LOG, LOG_DEAD_ZONE };
 DaisySeed hw;
 Svf filter1;
 Taper taper;
-float filter1_freq = fmap(Filter1Min, Filter1Max, 0.5f);
+float filter1_freq = fmap(0.5f, Filter1Min, Filter1Max);
 float pot1, pot2;
 bool filter_mode; // false - low pass, true - band pass
 TaperType taper_type;
@@ -54,13 +54,13 @@ void ProcessAnalogControls()
   float pot2v = hw.adc.GetFloat(1);
 
   if (fabs(pot1v - pot1) > ChangeThreshold) {
-    filter1_freq = fmap(Filter1Min, Filter1Max, Taper(pot1v));
+    filter1_freq = fmap(Taper(pot1v), Filter1Min, Filter1Max);
     filter1.SetFreq(filter1_freq);
     pot1 = pot1v;
   }
 
   if (fabs(pot2v - pot2) > ChangeThreshold) {
-    float q = fmap(QMin, QMax, pot2v);
+    float q = fmap(pot2v, QMin, QMax);
     filter1.SetRes(q);
     pot2 = pot2v;
   }

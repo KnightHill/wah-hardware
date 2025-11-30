@@ -19,21 +19,31 @@ constexpr float ChangeThreshold = 0.02f;
 
 float pot1, pot2;
 
+void BlinkLed(int num = 3, int delay = 250)
+{
+  for (int i = 0; i < num; i++) {
+    hw.SetLed(true);
+    System::Delay(delay);
+    hw.SetLed(false);
+    System::Delay(delay);
+  }
+}
+
 void ProcessAnalogControls()
 {
   const float pot1v = hw.adc.GetFloat(0);
   const float pot2v = hw.adc.GetFloat(1);
 
   if (fabs(pot1v - pot1) > ChangeThreshold) {
-    const float filter1_freq = fmap(Filter1Min, Filter1Max, pot1v);
-    const float filter2_freq = fmap(Filter2Min, Filter2Max, 1.0f - pot1v);
+    const float filter1_freq = fmap(pot1v, Filter1Min, Filter1Max);
+    const float filter2_freq = fmap(1.0f - pot1v, Filter2Min, Filter2Max);
     filter1.SetFreq(filter1_freq);
     filter2.SetFreq(filter2_freq);
     pot1 = pot1v;
   }
 
   if (fabs(pot2v - pot2) > ChangeThreshold) {
-    float q = fmap(QMin, QMax, pot2v);
+    float q = fmap(pot2v, QMin, QMax);
     filter1.SetRes(q);
     filter2.SetRes(q);
     pot2 = pot2v;
@@ -61,11 +71,13 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
 void init()
 {
   const int num_adc_channels = 2;
-  const float filter1_freq = fmap(Filter1Min, Filter1Max, .5f);
-  const float filter2_freq = fmap(Filter2Min, Filter2Max, .5f);
+  const float filter1_freq = fmap(.5f, Filter1Min, Filter1Max);
+  const float filter2_freq = fmap(.5f, Filter2Min, Filter2Max);
 
   hw.Init();
   hw.SetAudioBlockSize(4);
+
+  BlinkLed();
 
   AdcChannelConfig my_adc_config[num_adc_channels];
   my_adc_config[0].InitSingle(A2);
