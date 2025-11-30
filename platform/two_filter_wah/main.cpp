@@ -19,7 +19,7 @@ constexpr float ChangeThreshold = 0.02f;
 
 float pot1, pot2;
 
-void BlinkLed(int num = 3, int delay = 250)
+void BlinkLed(int num = 4, int delay = 200)
 {
   for (int i = 0; i < num; i++) {
     hw.SetLed(true);
@@ -60,8 +60,8 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
     filter1.Process(input);
     filter2.Process(input);
 
-    // TODO: Also try filter2.Process(filter1_out);
     float filter1_out = filter1.Band();
+    //filter2.Process(filter1_out);
     float filter2_out = filter2.Band();
 
     out[0][i] = out[1][i] = filter1_out + filter2_out;
