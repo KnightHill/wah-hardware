@@ -19,80 +19,80 @@ constexpr float ChangeThreshold = 0.02f;
 
 float pot1, pot2;
 
-void ProcessAnalogControls() {
-    const float pot1v = hw.adc.GetFloat(0);
-    const float pot2v = hw.adc.GetFloat(1);
+void ProcessAnalogControls()
+{
+  const float pot1v = hw.adc.GetFloat(0);
+  const float pot2v = hw.adc.GetFloat(1);
 
-    if(fabs(pot1v - pot1) > ChangeThreshold) {
-        const float filter1_freq = fmap(Filter1Min, Filter1Max, pot1v);
-        const float filter2_freq = fmap(Filter2Min, Filter2Max, 1.0f - pot1v);
-        filter1.SetFreq(filter1_freq);
-        filter2.SetFreq(filter2_freq);
-        pot1 = pot1v;
-    }
- 
-    if(fabs(pot2v - pot2) > ChangeThreshold) {
-        float q = fmap(QMin, QMax, pot2v);
-        filter1.SetRes(q);
-        filter2.SetRes(q);
-        pot2 = pot2v;
-    }    
+  if (fabs(pot1v - pot1) > ChangeThreshold) {
+    const float filter1_freq = fmap(Filter1Min, Filter1Max, pot1v);
+    const float filter2_freq = fmap(Filter2Min, Filter2Max, 1.0f - pot1v);
+    filter1.SetFreq(filter1_freq);
+    filter2.SetFreq(filter2_freq);
+    pot1 = pot1v;
+  }
+
+  if (fabs(pot2v - pot2) > ChangeThreshold) {
+    float q = fmap(QMin, QMax, pot2v);
+    filter1.SetRes(q);
+    filter2.SetRes(q);
+    pot2 = pot2v;
+  }
 }
 
 void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, size_t size)
 {
-    ProcessAnalogControls();
-    
-    for(size_t i = 0; i < size; i++)
-    {
-        float input = in[0][i];   
-        
-        filter1.Process(input);
-        filter2.Process(input);
+  ProcessAnalogControls();
 
-        // TODO: Also try filter2.Process(filter1_out);
-        float filter1_out = filter1.Band();
-        float filter2_out = filter2.Band();
+  for (size_t i = 0; i < size; i++) {
+    float input = in[0][i];
 
-        out[0][i] = out[1][i] = filter1_out + filter2_out;
-    }
+    filter1.Process(input);
+    filter2.Process(input);
+
+    // TODO: Also try filter2.Process(filter1_out);
+    float filter1_out = filter1.Band();
+    float filter2_out = filter2.Band();
+
+    out[0][i] = out[1][i] = filter1_out + filter2_out;
+  }
 }
 
-void init() 
+void init()
 {
-    const int num_adc_channels = 2;
-    const float filter1_freq = fmap(Filter1Min, Filter1Max, .5f);
-    const float filter2_freq = fmap(Filter2Min, Filter2Max, .5f);
+  const int num_adc_channels = 2;
+  const float filter1_freq = fmap(Filter1Min, Filter1Max, .5f);
+  const float filter2_freq = fmap(Filter2Min, Filter2Max, .5f);
 
-    hw.Init();
-    hw.SetAudioBlockSize(4);
+  hw.Init();
+  hw.SetAudioBlockSize(4);
 
-    AdcChannelConfig my_adc_config[num_adc_channels];
-    my_adc_config[0].InitSingle(A2);
-    my_adc_config[1].InitSingle(A1);
-    hw.adc.Init(my_adc_config, num_adc_channels);
-    hw.adc.Start();
+  AdcChannelConfig my_adc_config[num_adc_channels];
+  my_adc_config[0].InitSingle(A2);
+  my_adc_config[1].InitSingle(A1);
+  hw.adc.Init(my_adc_config, num_adc_channels);
+  hw.adc.Start();
 
-    float sample_rate = hw.AudioSampleRate();        
+  float sample_rate = hw.AudioSampleRate();
 
-    filter1.Init(sample_rate);
-    filter1.SetFreq(filter1_freq);
-    filter1.SetRes(0.7f);
-    filter1.SetDrive(0.75f);
+  filter1.Init(sample_rate);
+  filter1.SetFreq(filter1_freq);
+  filter1.SetRes(0.7f);
+  filter1.SetDrive(0.75f);
 
-    filter2.Init(sample_rate);
-    filter2.SetFreq(filter2_freq);
-    filter2.SetRes(0.7f);
-    filter2.SetDrive(0.75f);
+  filter2.Init(sample_rate);
+  filter2.SetFreq(filter2_freq);
+  filter2.SetRes(0.7f);
+  filter2.SetDrive(0.75f);
 
-    hw.StartAudio(AudioCallback);
+  hw.StartAudio(AudioCallback);
 }
 
 int main(void)
 {
-    pot1 = pot2 = 0;    
-    init();
+  pot1 = pot2 = 0;
+  init();
 
-    while(true) {
-    }
+  while (true) {
+  }
 }
