@@ -2,7 +2,7 @@
 TARGET = TwoFilterWah
 
 # Sources
-CPP_SOURCES = main.cpp
+CPP_SOURCES = main.cpp taper.cpp
 
 # Library Locations
 DAISYSP_DIR ?= ../../../../../DaisySP

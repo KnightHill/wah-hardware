@@ -1,6 +1,7 @@
 #include <string.h>
 #include "daisy_seed.h"
 #include "daisysp.h"
+#include "taper.h"
 
 using namespace daisy;
 using namespace daisy::seed;
@@ -8,6 +9,7 @@ using namespace daisysp;
 
 DaisySeed hw;
 Svf filter1, filter2;
+Taper taper;
 
 // https://home.cc.umanitoba.ca/~krussll/phonetics/acoustic/formants.html
 // http://www.geofex.com/Article_Folders/wahpedl/voicewah.htm
@@ -31,7 +33,7 @@ bool Filter1Dir, Filter2Dir;  // false - high to low, true, low to high
 
 float pot1, pot2;
 
-void BlinkLed(int num = 4, int delay = 200)
+void BlinkLed(int num = 4, int delay = 180)
 {
   for (int i = 0; i < num; i++) {
     hw.SetLed(true);
@@ -43,7 +45,7 @@ void BlinkLed(int num = 4, int delay = 200)
 
 void ProcessAnalogControls()
 {
-  const float pot1v = hw.adc.GetFloat(0);
+  const float pot1v = taper.Linear(hw.adc.GetFloat(0));
   const float pot2v = hw.adc.GetFloat(1);
 
   if (fabs(pot1v - pot1) > ChangeThreshold) {
@@ -81,7 +83,7 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
 }
 
 void CalcFiltersMinMax() {
-  // filter direction - false - high to low, true, low to high
+  // filter direction: false - high to low, true - low to high
   Filter1Dir = F1[vowel1_index] < F2[vowel1_index];
   Filter2Dir = F1[vowel2_index] < F2[vowel2_index];
 
@@ -91,10 +93,11 @@ void CalcFiltersMinMax() {
   Filter2Max = F2[vowel2_index]; // 2230
 }
 
-void init()
+void Init()
 {
   const int num_adc_channels = 2;
 
+  taper.Init();
   CalcFiltersMinMax();
   float filter1_freq = fmap(.5f, Filter1Min, Filter1Max);
   float filter2_freq = fmap(.5f, Filter2Min, Filter2Max);
@@ -128,7 +131,7 @@ void init()
 int main(void)
 {
   pot1 = pot2 = 0;
-  init();
+  Init();
 
   while (true) {
   }
