@@ -7,6 +7,8 @@ using namespace daisy;
 using namespace daisy::seed;
 using namespace daisysp;
 
+// #define DEBUG
+
 DaisySeed hw;
 Svf filter1, filter2;
 Taper taper;
@@ -50,7 +52,7 @@ void ProcessAnalogControls()
 
   if (fabs(pot1v - pot1) > ChangeThreshold) {
     const float filter1_freq = Filter1Dir ? fmap(pot1v, Filter1Min, Filter1Max) : fmap(1.0f - pot1v, Filter1Min, Filter1Max);
-    const float filter2_freq = Filter2Dir ? fmap(pot1v, Filter2Min, Filter2Max) : fmap(1.0f - pot2v, Filter2Min, Filter2Max);
+    const float filter2_freq = Filter2Dir ? fmap(pot1v, Filter2Min, Filter2Max) : fmap(1.0f - pot1v, Filter2Min, Filter2Max);
     filter1.SetFreq(filter1_freq);
     filter2.SetFreq(filter2_freq);
     pot1 = pot1v;
@@ -75,7 +77,6 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
     filter2.Process(input);
 
     float filter1_out = filter1.Band();
-    // filter2.Process(filter1_out);
     float filter2_out = filter2.Band();
 
     out[0][i] = out[1][i] = filter1_out + filter2_out;
@@ -84,14 +85,30 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
 
 void CalcFiltersMinMax() {
   // filter direction: false - high to low, true - low to high
-  Filter1Dir = F1[vowel1_index] < F2[vowel1_index];
-  Filter2Dir = F1[vowel2_index] < F2[vowel2_index];
+  // Filter1Dir = F1[vowel1_index] < F2[vowel1_index];
+  // Filter2Dir = F1[vowel2_index] < F2[vowel2_index];
+
+  Filter1Dir = false;
+  Filter2Dir = true;
 
   Filter1Min = F1[vowel1_index]; // 830 <-
   Filter1Max = F2[vowel1_index]; // 1170 ->
   Filter2Min = F1[vowel2_index]; // 280
   Filter2Max = F2[vowel2_index]; // 2230
 }
+
+#ifdef DEBUG
+void ShowFilterValues()
+{
+  hw.PrintLine("Filter1Min " FLT_FMT3, FLT_VAR3(Filter1Min));
+  hw.PrintLine("Filter1Max " FLT_FMT3, FLT_VAR3(Filter1Max));
+  hw.PrintLine("Filter2Min " FLT_FMT3, FLT_VAR3(Filter2Min));
+  hw.PrintLine("Filter2Max " FLT_FMT3, FLT_VAR3(Filter2Max));
+  hw.PrintLine("Filter1Dir %d", Filter1Dir);
+  hw.PrintLine("Filter2Dir %d", Filter2Dir);
+  hw.PrintLine("\n");
+}
+#endif
 
 void Init()
 {
@@ -126,6 +143,17 @@ void Init()
   filter2.SetDrive(0.75f);
 
   hw.StartAudio(AudioCallback);
+
+#ifdef DEBUG
+  // initialize the logger
+  hw.StartLog(true);
+  ShowFilterValues();
+  System::Delay(500);
+  // screen /dev/ttyACM0
+  // cu -l /dev/ttyACM0
+
+#endif
+
 }
 
 int main(void)
